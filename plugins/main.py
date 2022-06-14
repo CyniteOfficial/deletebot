@@ -14,7 +14,7 @@ async def main_func(bot: Stark, msg: Message):
         if user.status not in ['creator', 'administrator']:
             return
         if not user.can_delete_messages:
-            await msg.react("You don't have `CanDeleteMessages` right. Sorry!")
+            await msg.react("I can't promote users here. I need that right to work.!")
             return
     bot_id = (await bot.get_me()).id
     cm = await bot.get_chat_member(msg.chat.id, bot_id)
@@ -57,6 +57,6 @@ async def main_func(bot: Stark, msg: Message):
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 Stark.log(str(e), logging.WARN)
-    await msg.react("Successful! Deleted Everything. For more bots visit @StarkBots")
+    await msg.react("Successful! Deleted Everything. For more bots visit @CyniteBots")
     await status.delete()
     await userbot.leave_chat(msg.chat.id)
